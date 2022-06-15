@@ -9,15 +9,19 @@ namespace UnityModdingUtility
     {
         public delegate bool ValueSelectorTryGet(TKey key, out TValue value);
 
-        Dictionary<TKey, TValue> _internalDict;
+        protected Dictionary<TKey, TValue> _internalDict;
         readonly ValueSelectorTryGet _valueSelector;
 
-        object _syncRoot;
+        protected object _syncRoot;
 
-        public InitializeOnAccessDictionary(ValueSelectorTryGet selector)
+        protected InitializeOnAccessDictionary()
+        {
+            _internalDict = new Dictionary<TKey, TValue>();
+        }
+
+        public InitializeOnAccessDictionary(ValueSelectorTryGet selector) : this()
         {
             _valueSelector = selector;
-            _internalDict = new Dictionary<TKey, TValue>();
         }
 
         public InitializeOnAccessDictionary(Func<TKey, TValue> selector) : this((TKey key, out TValue value) => { value = selector(key); return true; })
@@ -28,7 +32,7 @@ namespace UnityModdingUtility
         {
         }
 
-        public TValue this[TKey key]
+        public virtual TValue this[TKey key]
         {
             get
             {
@@ -90,7 +94,7 @@ namespace UnityModdingUtility
             return _internalDict.Remove(key);
         }
 
-        public bool TryGetValue(TKey key, out TValue value)
+        public virtual bool TryGetValue(TKey key, out TValue value)
         {
             if (_internalDict.TryGetValue(key, out value))
                 return true;
