@@ -33,10 +33,6 @@ namespace UnityModdingUtility
             {
                 return _internalDict[key];
             }
-            set
-            {
-                base[key] = value;
-            }
         }
 
         public TValue this[TKey key, TArg arg]
