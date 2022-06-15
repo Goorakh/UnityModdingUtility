@@ -48,11 +48,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsyncOperationState.cs" />
     <Compile Include="Extensions\UnityObjectExtensions.cs" />
     <Compile Include="HandledList.cs" />
+    <Compile Include="CoroutineOut.cs" />
+    <Compile Include="InitializeAsync.cs" />
     <Compile Include="InitializeOnAccess.cs" />
     <Compile Include="InitializeOnAccessDictionary.cs" />
     <Compile Include="InitializeOnAccessDictionaryArg.cs" />
+    <Compile Include="IUnityCallbackProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
