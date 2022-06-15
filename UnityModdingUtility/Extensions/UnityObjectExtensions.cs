@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UnityModdingUtility.Extensions
 {
-    public static class Unity
+    public static class UnityObjectExtensions
     {
         public static bool Exists(this UnityEngine.Object obj)
         {
