@@ -39,7 +39,7 @@ namespace UnityModdingUtility
         {
             get
             {
-                if (TryGetValue(key, out TValue value))
+                if (TryGetValue(key, arg, out TValue value))
                     return value;
 
                 throw new KeyNotFoundException($"Key {key} is not in the dictionary and no value was decided");
